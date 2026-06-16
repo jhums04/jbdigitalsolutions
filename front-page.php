@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<<div class="container hero">
+<div class="container hero">
     <div class="hero-text-group">
         <h1 class="hero-title">We Build Websites That Generate Leads</h1>
         <p class="hero-subtitle">Custom Solutions for growing businesses.</p>
