@@ -1,0 +1,173 @@
+/* ===== front-page.css – Hero + Bento Grid (fully responsive) ===== */
+
+/* Hero container */
+.container.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  min-height: calc(100vh - 80px);
+  font-family: 'Lato', sans-serif;
+}
+
+/* Left text group */
+.hero-text-group {
+  flex: 1.2;
+  min-width: 280px;
+}
+
+.hero-title {
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.hero-subtitle {
+  font-weight: 500;
+  font-size: clamp(16px, 3vw, 20px);
+  color: #334155;
+  margin-bottom: 28px;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ===== Bento grid – Desktop (2 columns, left big image, right 3 stacked) ===== */
+.hero-image.bento {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Left big card – spans full height */
+.bento-card.card-main {
+  flex: 1.2;
+  background-color: #f1f5f9;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Right column as a flex column */
+.bento-right-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bento-card.card-row1 {
+  flex: 1;
+  background-color: #f1f5f9;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 28px -12px rgba(0,0,0,0.15);
+}
+
+.bento-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* or 'contain' if you prefer no cropping */
+  display: block;
+  background-color: #f1f5f9;
+}
+
+/* ===== Tablet (768px – 1024px): side by side text & bento, but stack inside bento? Let's keep desktop layout but smaller ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .container.hero {
+    gap: 32px;
+    padding: 24px;
+  }
+  .hero-image.bento {
+    gap: 16px;
+  }
+  .bento-card.card-main {
+    flex: 1;
+  }
+  .bento-right-stack {
+    gap: 16px;
+  }
+  .bento-card img {
+    object-fit: contain; /* avoid cropping on smaller screens */
+  }
+}
+
+/* ===== Mobile (max-width: 768px): stack text + bento vertically, show only main image (hide right stack) ===== */
+@media (max-width: 768px) {
+  .container.hero {
+    flex-direction: column;
+    gap: 32px;
+    padding: 20px;
+    min-height: auto;
+  }
+  .hero-text-group {
+    text-align: center;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+
+  /* Hide the right column (three small images) */
+  .bento-right-stack {
+    display: none;
+  }
+
+  /* Make the main card take full width */
+  .hero-image.bento {
+    width: 100%;
+  }
+  .bento-card.card-main {
+    width: 100%;
+    max-height: 380px;
+  }
+  .bento-card.card-main img {
+    object-fit: cover;
+  }
+}
+
+/* Small phones (max-width: 480px) – extra polish */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  .btn-primary {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+  .bento-card.card-main {
+    max-height: 280px;
+  }
+}
