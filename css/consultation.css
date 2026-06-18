@@ -229,3 +229,13 @@
         align-items: center;
     }
 }
+
+.success-message {
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+    color: #065f46;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-weight: 700;
+}

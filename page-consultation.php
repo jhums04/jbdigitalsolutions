@@ -80,6 +80,12 @@ get_header();
                 </p>
 
             </div>
+            
+                <?php if (isset($_GET['success'])) : ?>
+                    <div class="success-message">
+                        Thank you! We've received your inquiry and will contact you shortly.
+                    </div>
+                <?php endif; ?>
 
             <form
                 class="project-form"
