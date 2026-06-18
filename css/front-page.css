@@ -1,173 +1,807 @@
-/* ===== front-page.css – Hero + Bento Grid (fully responsive) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
-/* Hero container */
-.container.hero {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 40px;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  min-height: calc(100vh - 80px);
-  font-family: 'Lato', sans-serif;
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section {
+    background:
+        radial-gradient(circle at top left, #dbeafe 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #e0f2fe 0%, transparent 35%),
+        #ffffff;
 }
 
-/* Left text group */
+.container.hero {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    max-width: 1280px;
+    margin: 0 auto;
+
+    padding: 80px 24px;
+    min-height: calc(100vh - 120px);
+
+    font-family: 'Lato', sans-serif;
+}
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
 .hero-text-group {
-  flex: 1.2;
-  min-width: 280px;
+    flex: 1.1;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 18px;
+
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    margin-bottom: 24px;
 }
 
 .hero-title {
-  font-weight: 900;
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.2;
-  margin-bottom: 16px;
-  color: #0f172a;
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 1.1;
+    font-weight: 900;
+
+    color: #0f172a;
+
+    margin-bottom: 24px;
+
+    max-width: 700px;
 }
 
 .hero-subtitle {
-  font-weight: 500;
-  font-size: clamp(16px, 3vw, 20px);
-  color: #334155;
-  margin-bottom: 28px;
+    font-size: 20px;
+    line-height: 1.8;
+
+    color: #475569;
+
+    max-width: 650px;
+
+    margin-bottom: 32px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
 }
 
 .btn-primary {
-  background-color: #2563eb;
-  color: white;
-  font-weight: 700;
-  padding: 12px 28px;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: inline-block;
+    background: #2563eb;
+    color: #fff;
+
+    font-weight: 700;
+
+    padding: 16px 32px;
+
+    border-radius: 999px;
+
+    transition: all .25s ease;
 }
 
 .btn-primary:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
+    background: #1d4ed8;
+    transform: translateY(-3px);
 }
 
-/* ===== Bento grid – Desktop (2 columns, left big image, right 3 stacked) ===== */
+.btn-secondary {
+    background: #fff;
+
+    border: 2px solid #e2e8f0;
+
+    color: #0f172a;
+
+    font-weight: 700;
+
+    padding: 16px 32px;
+
+    border-radius: 999px;
+
+    transition: all .25s ease;
+}
+
+.btn-secondary:hover {
+    background: #f8fafc;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.hero-stats {
+    display: flex;
+    gap: 50px;
+
+    margin-top: 50px;
+
+    flex-wrap: wrap;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stat strong {
+    font-size: 32px;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.hero-stat span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* =========================
+   BENTO GRID
+========================= */
+
 .hero-image.bento {
-  flex: 1;
-  min-width: 280px;
-  display: flex;
-  gap: 20px;
+    flex: 1;
+    display: flex;
+    gap: 20px;
 }
 
-/* Left big card – spans full height */
-.bento-card.card-main {
-  flex: 1.2;
-  background-color: #f1f5f9;
-  border-radius: 28px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
+.bento-card {
+    background: #fff;
 
-/* Right column as a flex column */
-.bento-right-stack {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+    border-radius: 28px;
 
-.bento-card.card-row1 {
-  flex: 1;
-  background-color: #f1f5f9;
-  border-radius: 28px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, .06);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
 .bento-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 28px -12px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, .12);
+}
+
+.card-main {
+    flex: 1.2;
+
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bento-right-stack {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.card-row1 {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bento-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  /* or 'contain' if you prefer no cropping */
-  display: block;
-  background-color: #f1f5f9;
-}
-
-/* ===== Tablet (768px – 1024px): side by side text & bento, but stack inside bento? Let's keep desktop layout but smaller ===== */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .container.hero {
-    gap: 32px;
-    padding: 24px;
-  }
-  .hero-image.bento {
-    gap: 16px;
-  }
-  .bento-card.card-main {
-    flex: 1;
-  }
-  .bento-right-stack {
-    gap: 16px;
-  }
-  .bento-card img {
-    object-fit: contain; /* avoid cropping on smaller screens */
-  }
-}
-
-/* ===== Mobile (max-width: 768px): stack text + bento vertically, show only main image (hide right stack) ===== */
-@media (max-width: 768px) {
-  .container.hero {
-    flex-direction: column;
-    gap: 32px;
-    padding: 20px;
-    min-height: auto;
-  }
-  .hero-text-group {
-    text-align: center;
-  }
-  .hero-actions {
-    justify-content: center;
-  }
-
-  /* Hide the right column (three small images) */
-  .bento-right-stack {
-    display: none;
-  }
-
-  /* Make the main card take full width */
-  .hero-image.bento {
     width: 100%;
-  }
-  .bento-card.card-main {
-    width: 100%;
-    max-height: 380px;
-  }
-  .bento-card.card-main img {
+    height: 100%;
+
     object-fit: cover;
-  }
+
+    display: block;
 }
 
-/* Small phones (max-width: 480px) – extra polish */
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .container.hero {
+        gap: 40px;
+    }
+
+    .hero-title {
+        font-size: 52px;
+    }
+
+    .card-main {
+        min-height: 500px;
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .container.hero {
+        flex-direction: column;
+
+        padding: 40px 20px;
+
+        min-height: auto;
+    }
+
+    .hero-text-group {
+        text-align: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .hero-image.bento {
+        width: 100%;
+    }
+
+    .bento-right-stack {
+        display: none;
+    }
+
+    .card-main {
+        width: 100%;
+        min-height: 400px;
+    }
+
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 28px;
-  }
-  .btn-primary {
-    padding: 10px 24px;
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================
+   SERVICES SECTION
+========================= */
+
+.services-section {
+    padding: 120px 24px;
+    background: #f8fafc;
+}
+
+.services-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 70px;
+}
+
+.section-badge {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+
+    color: #2563eb;
+
     font-size: 14px;
-  }
-  .bento-card.card-main {
-    max-height: 280px;
-  }
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.2;
+    font-weight: 900;
+
+    color: #0f172a;
+
+    margin-bottom: 20px;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* =========================
+   SERVICE GRID
+========================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    border: 1px solid #e2e8f0;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, .04);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, .08);
+}
+
+.service-icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    font-weight: 800;
+
+    color: #0f172a;
+
+    margin-bottom: 16px;
+}
+
+.service-card p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .services-section {
+        padding: 80px 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 30px;
+    }
+
+}
+
+
+/* =========================
+   PROCESS SECTION
+========================= */
+
+.process-section {
+    padding: 120px 24px;
+    background: #ffffff;
+}
+
+.process-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    margin-top: 60px;
+}
+
+.process-card {
+    position: relative;
+
+    background: #fff;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    border: 1px solid #e2e8f0;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, .04);
+}
+
+.process-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, .08);
+}
+
+.process-number {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #60a5fa
+    );
+
+    color: white;
+
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.process-card h3 {
+    font-size: 24px;
+    font-weight: 800;
+
+    color: #0f172a;
+
+    margin-bottom: 16px;
+}
+
+.process-card p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .process-section {
+        padding: 80px 20px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================
+   WHY US SECTION
+========================= */
+
+.why-us-section {
+    padding: 120px 24px;
+    background: #f8fafc;
+}
+
+.why-us-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    margin-top: 60px;
+}
+
+.why-card {
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    border: 1px solid #e2e8f0;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.04);
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(15,23,42,.08);
+}
+
+.why-icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.why-card h3 {
+    font-size: 24px;
+    font-weight: 800;
+
+    color: #0f172a;
+
+    margin-bottom: 16px;
+}
+
+.why-card p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* =========================
+   RESULTS STRIP
+========================= */
+
+.results-strip {
+    margin-top: 80px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    border: 1px solid #e2e8f0;
+
+    padding: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.04);
+}
+
+.result-item strong {
+    display: block;
+
+    font-size: 42px;
+    font-weight: 900;
+
+    color: #2563eb;
+
+    margin-bottom: 10px;
+}
+
+.result-item span {
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+
+    .why-us-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .why-us-section {
+        padding: 80px 20px;
+    }
+
+    .why-us-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .results-strip {
+        grid-template-columns: 1fr;
+        padding: 40px;
+    }
+
+}
+
+
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.final-cta-section {
+    padding: 140px 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    color: white;
+}
+
+.final-cta-container {
+    max-width: 900px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.final-cta-section .section-badge {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15);
+
+    color: white;
+}
+
+.final-cta-container h2 {
+    font-size: clamp(36px, 5vw, 64px);
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.final-cta-container p {
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,.8);
+
+    max-width: 700px;
+
+    margin: 0 auto 40px;
+}
+
+.final-cta-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.final-cta-actions .btn-primary {
+    font-size: 18px;
+
+    padding: 18px 40px;
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,.35);
+}
+
+.final-cta-actions .btn-primary:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .final-cta-section {
+        padding: 90px 20px;
+    }
+
+    .final-cta-container p {
+        font-size: 18px;
+    }
+
 }
