@@ -4,6 +4,7 @@
         wp_enqueue_style('resetcss', get_theme_file_uri('/build/index.css'));
         wp_enqueue_style('header', get_theme_file_uri('/css/header.css'));
         wp_enqueue_style('front-page', get_theme_file_uri('/css/front-page.css'));
+         wp_enqueue_style('consultation', get_theme_file_uri('/css/consultation.css'));
         wp_enqueue_script(
             'mytheme-mobile-menu',                // Handle
             get_template_directory_uri() . '/js/navigation.js', // Path

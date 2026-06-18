@@ -7,7 +7,12 @@ get_header();
         <h1 class="hero-title">We Build Websites That Generate Leads</h1>
         <p class="hero-subtitle">Custom Solutions for growing businesses.</p>
         <div class="hero-actions">
-            <button class="btn btn-primary">Get Free Consultation</button>
+            <a
+                href="<?php echo site_url('/free-consultation'); ?>"
+                class="btn btn-primary">
+                Get Free Consultation
+
+            </a>
         </div>
     </div>
 
