@@ -1,13 +1,22 @@
-/**
- * Mobile menu toggle functionality
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.getElementById("mobile-menu-toggle");
-  const navContainer = document.querySelector(".nav-links-container");
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".mobile-toggle");
+  const menu = document.getElementById("primary-menu");
 
-  if (toggleBtn && navContainer) {
-    toggleBtn.addEventListener("click", function () {
-      navContainer.classList.toggle("open");
-    });
-  }
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("active");
+    toggle.setAttribute("aria-expanded", isOpen);
+    // Update aria-label for screen readers
+    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  });
+
+  // Close menu when a link is clicked (mobile only)
+  menu.addEventListener("click", (event) => {
+    if (event.target.tagName === "A") {
+      menu.classList.remove("active");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+    }
+  });
 });
