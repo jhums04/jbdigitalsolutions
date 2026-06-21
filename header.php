@@ -46,7 +46,7 @@
             }
             ?>
             <div class="nav-cta">
-                <a href="/contact" class="cta-button">Schedule a Call</a>
+                <a href="/free-consultation" class="cta-button">Schedule a Call</a>
             </div>
         </nav>
     </div>

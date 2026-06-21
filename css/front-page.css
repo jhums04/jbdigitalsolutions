@@ -322,8 +322,11 @@
     }
 
     .hero-stats {
-        flex-direction: column;
         gap: 20px;
+    }
+
+    .hero-image.bento {
+      display: none;
     }
 
 }
